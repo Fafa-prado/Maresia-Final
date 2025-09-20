@@ -1,0 +1,50 @@
+{
+    "mare-serena": {
+        "titulo": "Mare Serena",
+        "paragrafos": [
+            "A coleção Maré Serena nasce do encontro entre o equilíbrio das águas calmas e a força silenciosa da mulher que habita o litoral — por escolha, por essência ou por sonho. Inspirada nos instantes em que o mar repousa e o céu se espelha nas águas, esta coleção traduz serenidade em forma de roupa.",
+
+            "São peças que flutuam no corpo como brisa, com cortes orgânicos, caimentos delicados e uma paleta de cores que vai do azul profundo ao areia suave. Os tecidos, naturais e sustentáveis, foram escolhidos para proporcionar conforto térmico, toque leve e durabilidade — porque o que é sereno também é forte, e o que é delicado pode ser eterno.",
+
+            "Maré Serena é para quem vive entre ondas e silêncios, entre sol e sombra, entre o movimento e a pausa. Uma coleção que entende o tempo do corpo, respeita a natureza e propõe um vestir intuitivo, gentil e leve como um fim de tarde à beira-mar. Aqui, cada peça é um sopro de paz, um abrigo sensível, um reflexo do mar em estado de calma."
+        ],
+        "capa": ["CapaMare"]
+    },
+    "floral-atlantico": {
+        "titulo": "Floral Atlântico",
+        "paragrafos": [
+            "Permita-se florescer com a energia vibrante das águas salgadas e o encanto das paisagens costeiras. A coleção Floral Atlântico nasce da fusão entre o frescor do oceano e a delicadeza da flora que cresce às suas margens. Inspirada nas flores resistentes que desabrocham mesmo em terrenos arenosos, a coleção traduz força e leveza em peças que acolhem o corpo com suavidade e naturalidade.",
+
+            "A paleta de cores passeia entre os tons do mar profundo, os verdes vivos da vegetação litorânea e os nuances florais que brotam nos finais de tarde ensolarados. Cada estampa foi cuidadosamente criada para expressar a beleza orgânica das flores silvestres, com traços fluidos, sobreposições leves e composições harmônicas que revelam o equilíbrio entre natureza e design.",
+
+            "Vestidos frescos, batas, saias amplas, saídas de praia e biquínis compõem essa coleção que abraça a feminilidade em todas as suas formas. Os tecidos são respiráveis, suaves ao toque e pensados para acompanhar você nos dias de sol, nas caminhadas à beira-mar ou nos fins de tarde sob a sombra de uma árvore.",
+
+            "Com modelagens versáteis, estampas autorais e detalhes que evocam a simplicidade encantadora da natureza, Floral Atlântico é mais que uma coleção — é um convite para florescer com liberdade, inspirar beleza e viver em sintonia com o ciclo natural das marés"
+        ],
+        "capa": ["CapaFloral"]
+    },
+    "perola-salgada": {
+        "titulo": "Pérola Salgada",
+        "paragrafos": [
+            "Descubra a elegância que nasce do encontro entre o brilho suave das pérolas e a força bruta do mar. A coleção Pérola Salgada celebra a beleza que emerge do inesperado — como uma joia rara encontrada entre conchas no fundo do oceano. Inspirada nas mulheres que carregam luz mesmo em meio às tempestades, esta coleção une sofisticação e naturalidade em peças que refletem um luxo sutil, acessível e profundamente autêntico.",
+
+            "A paleta de cores traz tons perolados, areia úmida, cinzas oceânicos, off-whites e nuances de sal cristalizado. Cada peça evoca o brilho discreto das pérolas, combinado com texturas que remetem às rochas marinhas, à espuma das ondas e às marés baixas. Tecidos com leve toque acetinado, algodões respiráveis e fibras naturais compõem vestidos fluidos, saídas elegantes, biquínis clássicos e camisas amplas que vestem como abraços do mar. ",
+
+            "",
+
+            ""
+        ],
+        "capa": ["CapaPerola"]
+    },
+    "ecos-do-mar": {
+        "titulo": "Ecos do Mar",
+        "paragrafos": [
+            ">A coleção Ecos do Mar é um sussurro vindo das profundezas oceânicas, um convite a escutar o que o mar tem a dizer quando o mundo silencia. Inspirada na fluidez das águas, nos tons suaves das conchas e na força das marés, cada peça foi criada para traduzir em tecido a alma do oceano.",
+
+            "Com cortes leves, tecidos sustentáveis e texturas que lembram o toque da areia molhada e do vento salgado, Ecos do Mar celebra o movimento, a liberdade e o respeito ao planeta. É uma coleção feita para mulheres que caminham com leveza, mas deixam marcas profundas — assim como as ondas.",
+
+            "Mais do que vestir, Ecos do Mar propõe uma conexão: com a natureza, com o corpo e com o ritmo que só o mar entende. Porque vestir-se também pode ser um gesto de escuta, e o oceano ainda tem muito a nos contar."
+        ],
+        "capa": ["CapaEcos"]
+    }
+}
