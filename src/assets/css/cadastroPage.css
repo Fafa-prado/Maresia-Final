@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo&display=swap');
+
+body, * {
+  box-sizing: border-box;
+}
+
+.formulario {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../img/Fundo.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Classes utilitárias para visibilidade */
+.visivel {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+}
+
+.oculto {
+  display: none !important;
+}
+
+/* Título */
+.titulo-form {
+  color: #524b4b;
+}
+
+/* Formulários */
+.forms, .step-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.forms input, .step-content form input {
+  width: 450px;
+  margin-bottom: 15px;
+  height: 30px;
+  border-radius: 50px;
+  border: 3px solid #524b4b;
+  padding-left: 10px;
+  font-family: "Poppins", sans-serif;
+}
+
+.forms button, .step-content form button {
+  width: 220px;
+  height: 32px;
+  border-radius: 50px;
+  border: none;
+  background-color: #524b4b;
+  color: white;
+  cursor: pointer;
+  font-size: 13px;
+  letter-spacing: 2px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.step-1 form, .step-2 form, .step-3 form {
+  width: 450px;
+}
+
+.forms button a {
+  text-decoration: none;
+  color: white;
+}
+
+/* Acesso Link */
+.acesso {
+  color: #084550;
+  font-size: 13px;
+  margin-left: 300px;
+  margin-top: 20px;
+  letter-spacing: 2px;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Títulos do formulário de cadastro */
+.cadastro-steps h2 {
+  color: #524b4b;
+  margin-bottom: 15px;
+}
+
+/* Progress Steps */
+.progress-steps {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin: 10px 0 15px;
+}
+
+.progress-steps .step {
+  width: 75px;
+  height: 7px;
+  border-radius: 50px;
+  background-color: #ddd;
+  transition: background-color 0.3s;
+}
+
+.progress-steps .step.active {
+  background-color: #175a66;
+}
+
+/* Botões avançar/voltar */
+.botoes {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.botoes button {
+  width: 180px;
+  height: 32px;
+  border-radius: 50px;
+  border: none;
+  background-color: #524b4b;
+  color: white;
+  cursor: pointer;
+  font-size: 13px;
+  letter-spacing: 2px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form button span{
+  color: white;
+  font-weight: 100;
+}
+
+/*VOLTAR*/
+.botao-voltar {
+  position: absolute;
+  top: 80px;
+  left: 20px;
+  background: transparent;
+  border: none;
+  color: #084550;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10;
+  background-color: #ddd;
+  padding: 10px;
+  border-radius: 8px;
+  width: 80px;
+}
+
+.botao-voltar:hover {
+  background: #ccc;
+}
+
+/* Estilos para o contêiner de alertas */
+#alert-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 3000; /* Aumentei ainda mais o z-index para garantir que o alerta fique acima de todos os elementos */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Estilos para o componente de alerta */
+.alerta {
+  padding: 15px 20px;
+  border-radius: 5px;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.alerta.info {
+  background-color: #007bff;
+}
+
+.alerta.erro {
+  background-color: #dc3545;
+}
+
+.alerta.sucesso {
+  background-color: #28a745;
+}

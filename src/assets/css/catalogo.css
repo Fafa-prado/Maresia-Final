@@ -1,0 +1,156 @@
+/* Container dos produtos */
+.produtos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1800px;
+    width: 100%;
+    font-family: "Abel", sans-serif;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 20px; /* vamos remover o fixo do banner */
+    padding-top: 20px; 
+    box-sizing: border-box;
+}
+
+/* Cada cartão de produto */
+.produto-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    max-width: 350px;
+    border-radius: 12px;
+    padding: 12px;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+.produto-card img {
+    width: 100%;
+    border-radius: 2px;
+    box-shadow: 1px 2px 5px 2px rgba(0, 0, 0, 0.3);
+    display: block;
+}
+
+.produto-card h3 {
+    margin: 5px 0 1px;
+    font-size: 17px;
+    text-align: center;
+    color: #6b6161;
+    font-weight: 550;
+}
+
+.produto-card p {
+    margin: 5px 0;
+    font-size: 15px;
+    color: black;
+}
+
+.cores {
+    display: flex;
+    gap: 5px;
+}
+
+.cor-bolinha {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.preco-cores {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1px 0;
+}
+
+/* Botão ver mais */
+.ver-mais-container {
+    text-align: center;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: white;
+}
+
+#ver-mais {
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    border-radius: 100%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    outline: none;
+}
+
+#ver-mais:hover {
+    background-color: rgba(163, 163, 163, 0.226);
+}
+
+#ver-mais img {
+    width: 40px;
+    transition: transform 0.3s;
+}
+
+#ver-mais img.aberta {
+    transform: rotate(180deg);
+}
+
+#vermais:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.veja-mais {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-family: "Poppins", sans-serif;
+}
+
+.veja-mais a {
+    color: #175a66;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+}
+
+.veja-mais a:hover {
+    color: #175a66;
+    font-weight: bold;
+}
+
+/* RESPONSIVIDADE */
+
+/* tablets */
+@media (max-width: 1024px) {
+    .produtos {
+        gap: 15px;
+    }
+
+    .produto-card {
+        max-width: 45%;
+    }
+}
+
+/* celulares */
+@media (max-width: 768px) {
+    .produtos {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        margin-top: 10px;
+    }
+
+    .produto-card {
+        max-width: 90%;
+    }
+}

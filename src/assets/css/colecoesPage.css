@@ -1,0 +1,119 @@
+/* Reset e configuração de tela */
+main {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0; 
+    font-family: "Poppins", sans-serif;
+    overflow: hidden;
+}
+
+/* Título da seção */
+.colecoes-title {
+    margin-top: 70px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 20px;
+    font-family: "Abel", sans-serif;
+}
+
+.colecoes-title h1 {
+    color: #524b4b;
+    margin: 0;
+}
+
+.colecoes-title hr {
+    height: 3px;
+    background-color: #524b4b;
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 80px;
+}
+
+/* Container principal */
+.colecoes-conteiner {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 100px); /* ajusta para o título */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    overflow: hidden;
+}
+
+/* Fundo das ondas */
+.colecoes-conteiner::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 480px;
+    /* background-image: url("../img/Fundo.png"); */
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 100% auto;
+    z-index: -1;
+}
+
+/* Coleções */
+.colecoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+}
+
+/* Cada item */
+.colecao-item {
+    position: relative;
+    width: 335px;
+    height: 565px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Imagem do item */
+.colecao-item img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover; /* garante que a imagem preencha sem deformar */
+}
+
+/* Overlay do item */
+.colecao-item .overlay2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.267);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.colecao-item .overlay2 a {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 2;
+}
+
+.colecao-item .overlay2:hover {
+    background-color: rgba(0,0,0,0.5); /* efeito hover */
+}
+
+.colecao-item .overlay2 a:hover {
+    color: #ffffff8e;
+}
