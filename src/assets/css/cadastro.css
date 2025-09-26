@@ -85,12 +85,13 @@ hr {
 
 #alert-container {
   position: fixed;
-  top: 20px;
+  top: 60px; /* Mantém o alerta abaixo do cabeçalho */
   right: 20px;
-  z-index: 2000;
+  z-index: 600; /* Mantém o z-index alto para garantir a sobreposição */
   display: flex;
   flex-direction: column;
   gap: 10px;
+  width: 400px; /* Aumentei a largura do contêiner para melhorar a visibilidade */
 }
 
 .alerta {
@@ -104,7 +105,7 @@ hr {
   top: 20px; /* <-- agora no topo */
   left: 50%;
   transform: translateX(-50%);
-  z-index: 9999;
+  z-index: 10000;
   opacity: 0.95;
 }
 

@@ -48,11 +48,12 @@ export default function Sacola() {
   const [formaPagamento, setFormaPagamento] = useState("cartao"); // valor padrão
 
   // Alerta
-const [alerta, setAlerta] = useState(null);
+  const [alerta, setAlerta] = useState(null);
+  const [alertaConfirmacao, setAlertaConfirmacao] = useState(null);
 
-const mostrarAlerta = (mensagem, tipo = "info") => {
-  setAlerta({ mensagem, tipo });
-};
+  const mostrarAlerta = (mensagem, tipo = "info") => {
+    setAlerta({ mensagem, tipo });
+  };
 
   // Resumo do pedido
   const subtotal = produtos.reduce((acc, p) => acc + p.preco * p.quantidade, 0);
@@ -86,8 +87,7 @@ const mostrarAlerta = (mensagem, tipo = "info") => {
             estado: data.uf,
           }));
         } else {
-        mostrarAlerta("CEP não encontrado.", "erro");
-
+          mostrarAlerta("CEP não encontrado.", "erro");
         }
       } catch {
         mostrarAlerta("Erro ao buscar CEP.", "erro");
@@ -126,11 +126,12 @@ const mostrarAlerta = (mensagem, tipo = "info") => {
       );
 
       if (existe) {
-        mostrarAlerta("Endereço já cadastrado!","info");
+        mostrarAlerta("Endereço já cadastrado!", "info");
         return;
       }
 
       setEnderecos((prev) => [...prev, novoEndereco]);
+      mostrarAlerta("Endereço adicionado com sucesso!", "sucesso");
     }
 
     setNovoEndereco({
@@ -143,6 +144,17 @@ const mostrarAlerta = (mensagem, tipo = "info") => {
       complemento: "",
     });
     setModalEnderecoAberto(false);
+  };
+
+  const confirmarExclusaoEndereco = (index) => {
+    setAlertaConfirmacao({
+      mensagem: "Tem certeza que deseja excluir este endereço?",
+      onConfirmar: () => {
+        deletarEndereco(index);
+        setAlertaConfirmacao(null);
+      },
+      onCancelar: () => setAlertaConfirmacao(null),
+    });
   };
 
   const deletarEndereco = (index) => {
@@ -261,7 +273,7 @@ const mostrarAlerta = (mensagem, tipo = "info") => {
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
-                        deletarEndereco(i);
+                        confirmarExclusaoEndereco(i);
                       }}
                     >
                       <img src={Images.LixeiraIcon} alt="Apagar" />
@@ -309,7 +321,6 @@ const mostrarAlerta = (mensagem, tipo = "info") => {
               Adicionar
             </button>
           </div>
-
           <hr />
           <div className="valores">
             <p>
@@ -418,72 +429,71 @@ const mostrarAlerta = (mensagem, tipo = "info") => {
       )}
 
       {/* MODAL CONFIRMAÇÃO */}
-      {/* MODAL CONFIRMAÇÃO */}
-{modalConfirmacaoAberto && (
-  <div className="modal-endereco">
-    <div className="modal-conteudo">
-      <h2>Confirmação do pedido</h2>
-      <p><span>Comprador:</span> Fulano de tal</p>
+      {modalConfirmacaoAberto && (
+        <div className="modal-endereco">
+          <div className="modal-conteudo">
+            <h2>Confirmação do pedido</h2>
+            <p><span>Comprador:</span> Fulano de tal</p>
 
-      <h3>Escolha o endereço de entrega:</h3>
-      <div className="select-endereco">
-        {enderecos.map((end, i) => (
-          <label key={i}>
-            <input
-              type="radio"
-              name="endereco"
-              value={i}
-              defaultChecked={i === 0}
-            />
-            {end.bairro} - {end.cidade}, {end.estado} | {end.rua}, {end.numero} | CEP: {end.cep}
-          </label>
-        ))}
-      </div>
+            <h3>Escolha o endereço de entrega:</h3>
+            <div className="select-endereco">
+              {enderecos.map((end, i) => (
+                <label key={i}>
+                  <input
+                    type="radio"
+                    name="endereco"
+                    value={i}
+                    defaultChecked={i === 0}
+                  />
+                  {end.bairro} - {end.cidade}, {end.estado} | {end.rua}, {end.numero} | CEP: {end.cep}
+                </label>
+              ))}
+            </div>
 
-      <h3>Forma de pagamento:</h3>
-      <select
-        value={formaPagamento}
-        onChange={(e) => setFormaPagamento(e.target.value)}
-        required
-      >
-        <option value="cartao">Cartão de crédito</option>
-        <option value="pix">PIX</option>
-        <option value="boleto">Boleto</option>
-      </select>
+            <h3>Forma de pagamento:</h3>
+            <select
+              value={formaPagamento}
+              onChange={(e) => setFormaPagamento(e.target.value)}
+              required
+            >
+              <option value="cartao">Cartão de crédito</option>
+              <option value="pix">PIX</option>
+              <option value="boleto">Boleto</option>
+            </select>
 
-      <h3>Parcelamento:</h3>
-      <select>
-        {Array.from({ length: 12 }, (_, i) => i + 1).map((n) => (
-          <option key={n} value={n}>
-            {n}x de R${(subtotal / n).toFixed(2).replace(".", ",")}
-          </option>
-        ))}
-      </select>
+            <h3>Parcelamento:</h3>
+            <select>
+              {Array.from({ length: 12 }, (_, i) => i + 1).map((n) => (
+                <option key={n} value={n}>
+                  {n}x de R${(subtotal / n).toFixed(2).replace(".", ",")}
+                </option>
+              ))}
+            </select>
 
-      <div className="valor-final">
-        <span>Total: R$ {subtotal.toFixed(2).replace(".", ",")}</span>
-      </div>
+            <div className="valor-final">
+              <span>Total: R$ {subtotal.toFixed(2).replace(".", ",")}</span>
+            </div>
 
-      <div className="buttons">
-        <button
-          onClick={() => {
-            if (!formaPagamento) {
-              mostrarAlerta("Selecione uma forma de pagamento válida.", "erro");
-              return;
-            }
-            mostrarAlerta("Pedido confirmado! Obrigado pela compra!", "sucesso");
-            setModalConfirmacaoAberto(false);
-          }}
-        >
-          Confirmar pedido
-        </button>
-        <button onClick={() => setModalConfirmacaoAberto(false)}>Cancelar</button>
-      </div>
-    </div>
-  </div>
-)}
+            <div className="buttons">
+              <button
+                onClick={() => {
+                  if (!formaPagamento) {
+                    mostrarAlerta("Selecione uma forma de pagamento válida.", "erro");
+                    return;
+                  }
+                  mostrarAlerta("Pedido confirmado! Obrigado pela compra!", "sucesso");
+                  setModalConfirmacaoAberto(false);
+                }}
+              >
+                Confirmar pedido
+              </button>
+              <button onClick={() => setModalConfirmacaoAberto(false)}>Cancelar</button>
+            </div>
+          </div>
+        </div>
+      )}
 
-{/* Contêiner para os alertas */}
+      {/* Contêiner para os alertas */}
       <div id="alert-container">
         {alerta && (
           <Alert
@@ -492,8 +502,18 @@ const mostrarAlerta = (mensagem, tipo = "info") => {
             onClose={() => setAlerta(null)}
           />
         )}
+        {alertaConfirmacao && (
+          <div id="modalConfirmarExclusao">
+            <div className="modal-conteudo">
+              <p>{alertaConfirmacao.mensagem}</p>
+              <div className="botoes-alerta">
+                <button onClick={alertaConfirmacao.onConfirmar}>Confirmar</button>
+                <button onClick={alertaConfirmacao.onCancelar}>Cancelar</button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
-
     </div>
   );
 }

@@ -170,9 +170,9 @@ body, * {
 /* Estilos para o contêiner de alertas */
 #alert-container {
   position: fixed;
-  top: 20px;
+  top: 120px; /* Aumentei o valor para garantir que o alerta fique visível abaixo do cabeçalho */
   right: 20px;
-  z-index: 3000; /* Aumentei ainda mais o z-index para garantir que o alerta fique acima de todos os elementos */
+  z-index: 5000; /* Aumentei o z-index para garantir que o alerta fique acima do cabeçalho */
   display: flex;
   flex-direction: column;
   gap: 10px;

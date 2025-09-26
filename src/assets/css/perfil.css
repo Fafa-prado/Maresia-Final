@@ -196,3 +196,75 @@ input {
   max-height: 200px;
   opacity: 1;
 }
+
+
+
+
+@media (max-width: 600px) {
+  .pagina {
+    flex-direction: column;
+  }
+
+  aside {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+    min-height: auto;
+  }
+
+  .conteudo-usuario {
+    padding: 20px;
+  }
+
+  .dados-grid {
+    grid-template-columns: 1fr; 
+    gap: 10px;
+  }
+
+  .editar,
+  .salvar {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  input {
+    font-size: 13px;
+  }
+
+  .dropdown-selecionado {
+    font-size: 13px;
+  }
+}
+
+
+@media (min-width: 601px) and (max-width: 768px) {
+  .pagina {
+    flex-direction: column;
+  }
+
+  aside {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+    min-height: auto;
+  }
+
+  .conteudo-usuario {
+    padding: 30px;
+  }
+
+  .dados-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 15px 30px;
+  }
+
+  .editar,
+  .salvar {
+    width: auto;
+  }
+
+  input {
+    font-size: 14px;
+  }
+}

@@ -21,7 +21,7 @@ html, body {
     justify-content: space-between;
     align-items: center;
     background-color: #0e2523;
-    z-index: 999;
+    z-index: 500; /* Reduzi o z-index do cabeçalho para garantir que o alerta o sobreponha */
     padding: 9px 20px; 
     align-items: center;
 }
@@ -83,7 +83,7 @@ html, body {
     justify-content: space-between;
     align-items: center;
     background-color: #0e2523;
-    z-index: 999;
+    z-index: 500; 
     padding: 9px 20px;
 }
 
