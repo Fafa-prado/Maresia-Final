@@ -51,3 +51,50 @@ span {
     max-width: 750px;
     height: 300px;
 }
+
+@media (max-width: 1024px) {
+    .cabecalho {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .links {
+        width: 974px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cabecalho {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .links {
+        width: 754px;
+    }
+}
+
+@media (max-width: 600px) {
+    .cabecalho {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .links {
+        width: 554px;
+    }
+
+    .links img {
+        width: 70px;
+    }
+
+    .links span {
+        font-size: 17px;
+    }
+}

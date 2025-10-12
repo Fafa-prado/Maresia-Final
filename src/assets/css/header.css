@@ -792,3 +792,31 @@ html, body {
     }
 }
 
+@media (max-width: 600px) {
+  .menu-mobile.aberto {
+    width: 215px;
+  }
+
+  .menu-mobile .fechar-menu {
+    font-size: 15px;
+    padding: 5px;
+  }
+
+  .menu-mobile li {
+    padding: 8px 4px;
+  }
+
+  .menu-mobile a {
+    padding: 2px;
+    font-size: 14px;
+  }
+
+  .menu-mobile span img {
+    width: 10px;
+    height: 10px;
+  }
+
+  .submenu-grupo {
+    font-size: 13px;
+  }
+}

@@ -15,6 +15,7 @@ import capaEcos from "./capa-ecos.svg";
 import capaPerola from "./capa-perola.svg";
 import setaEsquerda from "./seta-esquerda-branca.png";
 import setaDireita from "./seta-direita-branca.png";
+import EcosTeste from "./ecos-do-mar-teste.png";
 
 // Catálogo
 import vestido from "./vestido-saida-de-praia-branca.png";
@@ -79,6 +80,7 @@ export default {
   capaPerola,
   setaEsquerda,
   setaDireita,
+  EcosTeste,
 
   // Catálogo
   vestido,

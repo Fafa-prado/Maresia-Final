@@ -4,10 +4,10 @@ import Images from "../assets/img";
 
 export default function Banner() {
   const slides = [
-    { img: Images.colecao1, link: "mare-serena.html", textos: ["─── Coleção ───", "Maré Serena"], cores: ["white", "white"] },
-    { img: Images.capaFloral, link: "floral-atlantico.html", textos: ["Coleção", "Floral Atlântico", "by Carol Bassi"], cores: ["yellow", "white", "white"] },
-    { img: Images.capaEcos, link: "ecos.html", textos: ["─── Coleção ───", "Ecos do Mar"], cores: ["white", "white"] },
-    { img: Images.capaPerola, link: "perola.html", textos: ["Coleção", "Pérola Salgada"], cores: ["white", "white"] },
+    { img: Images.colecao1, link: "mare-serena.html", textos: ["", "Maré Serena"], cores: ["white", "white"] },
+    { img: Images.capaFloral, link: "floral-atlantico.html", textos: ["", "Floral Atlântico", ""], cores: ["yellow", "white", "white"] },
+    { img: Images.capaEcos, link: "ecos.html", textos: ["", "Ecos do Mar"], cores: ["white", "white"] },
+    { img: Images.capaPerola, link: "perola.html", textos: ["", "Pérola Salgada"], cores: ["white", "white"] },
   ];
 
   const DURATION = 5000; // 8 segundos por slide

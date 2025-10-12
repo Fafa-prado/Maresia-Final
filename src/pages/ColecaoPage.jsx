@@ -58,10 +58,9 @@ export default function ColecaoPage() {
                         </>
                     )}
                 </div>
-
-                <div className="filtros"><Filtros /></div>
-
             </div>
+
+            <Filtros />
 
             <div className="produtos">
                 {produtos.length === 0 && (

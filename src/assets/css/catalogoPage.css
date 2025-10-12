@@ -1,3 +1,7 @@
+.container {
+    width: 100%;
+}
+
 .colecoes-title {
     display: flex;
     flex-direction: column;
@@ -34,8 +38,9 @@
     width: 100%;
     font-family: "Abel", sans-serif;
     justify-content: center;
-    margin: 0 auto;
-    margin-top: 15px;
+    margin: 0;
+    padding: 0;
+    /* margin-top: 15px; */
 }
 
 .produto-card {
@@ -103,9 +108,10 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    width: 100%;
 }
 
-.links{
+.links-catalogo {
     /* text-decoration: none; */
     color: #837d7d;
     font-family: "Poppins", sans-serif;
@@ -117,6 +123,10 @@
     /* margin-left: 12px; */
 }
 
+.links-catalogo a {
+    color: #837d7d;
+}
+
 span {
     color: #084550;
     font-weight: bold;
@@ -124,4 +134,28 @@ span {
 
 .filtros {
     width: 1700px;
+}
+
+.filter {
+    width: 100%;
+}
+
+section hr {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .links-catalogo {
+        width: 728px;
+    }
+}
+
+@media (max-width: 600px) {
+    .links-catalogo {
+        width: 550px;
+    }
+
+    .links-catalogo span {
+        font-size: 17px;
+    }
 }

@@ -45,9 +45,9 @@ export default function CatalogoPage() {
   };
 
   return (
-    <div className="catalogo-container">
+    <div>
       <div className="cabecalho">
-        <div className="links">
+        <div className="links-catalogo">
           <Link to="/">Inicial</Link>
           {categoriaSelecionada && (
             <>
@@ -60,7 +60,7 @@ export default function CatalogoPage() {
           )}
         </div>
 
-        <div className="filtros"><Filtros /></div>
+        <Filtros />
 
       </div>
 
@@ -72,13 +72,13 @@ export default function CatalogoPage() {
         {produtosFiltrados.map((produto) => (
           <div className="produto-card" key={produto.id}>
             <div className="img-container">
-              <a href={`/produto.html?id=${produto.id}`}>
+              <Link to={`/produto/${produto.id}`}>
                 <img
                   src={Images[produto.imagens[0]]}
                   alt={produto.nome}
                   className="produto-img"
                 />
-              </a>
+              </Link>
 
               {produto.novidade && (
                 <img
@@ -116,7 +116,6 @@ export default function CatalogoPage() {
           </div>
         ))}
       </div>
-
       <Cadastro />
     </div>
   );
