@@ -71,8 +71,8 @@ main {
 /* Cada item */
 .colecao-item {
     position: relative;
-    width: 335px;
-    height: 565px;
+    width: 435px;
+    height: 755px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -105,9 +105,16 @@ main {
     color: white;
     font-size: 20px;
     text-decoration: none;
-    padding: 10px 20px;
+    padding: 350px 100px;
     border-radius: 5px;
     z-index: 2;
+}
+
+.colecao-item img {
+    width: 500px;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
 .colecao-item .overlay2:hover {

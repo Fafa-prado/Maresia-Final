@@ -32,7 +32,7 @@ aside {
 }
 
 .usuario h2 {
-  font-size: 16px;
+  font-size: 14px; /* Reduzido de 16px */
   color: #524b4b;
 }
 
@@ -60,7 +60,7 @@ aside li {
 }
 
 aside li a {
-  font-size: 14px;
+  font-size: 12px; /* Reduzido de 14px */
   color: #333;
   cursor: pointer;
   text-decoration: none;
@@ -80,7 +80,7 @@ aside li a:hover {
 }
 
 .conteudo-titlle {
-  font-size: 23px;
+  font-size: 20px; /* Reduzido de 23px */
   margin-bottom: 20px;
   color: #524b4b;
 }
@@ -90,24 +90,22 @@ aside li a:hover {
   display: grid;
   grid-template-columns: 1fr 1fr; /* Mantém duas colunas */
   gap: 20px 60px; /* Aumenta o espaçamento entre os itens */
-  font-size: 11px;
+  font-size: 10px; /* Reduzido de 11px */
   color: #6b6161;
   margin-bottom: 20px;
   font-weight: 100;
 }
 
 .dados-grid p {
-  font-size: 15px;
+  font-size: 13px; /* Reduzido de 15px */
 }
 
 /* Botão editar */
 .editar {
   margin-top: 50px;
-  /* padding: 4px 10px; */
-  font-size: 16px;
+  font-size: 14px; /* Reduzido de 16px */
   background-color: transparent;
   border: transparent;
-  /* border-radius: 4px; */
   cursor: pointer;
   color: #524b4b;
   text-decoration: underline;
@@ -122,7 +120,7 @@ aside li a:hover {
 
 label {
   margin-left: 15px;
-  font-size: 16px;
+  font-size: 14px; /* Reduzido de 16px */
   font-weight: bold;
 }
 
@@ -134,7 +132,7 @@ input {
   background-color: transparent;
   color: #6b6161;
   outline: none;
-  font-size: 14px;
+  font-size: 12px; /* Reduzido de 14px */
 }
 
 .salvar {
@@ -143,7 +141,7 @@ input {
   border-radius: 30px;
   padding: 12px 14px;
   border: 0;
-  font-size: 16px;
+  font-size: 14px; /* Reduzido de 16px */
   margin-top: 50px;
   cursor: pointer;
 }
@@ -161,7 +159,7 @@ input {
   border-radius: 30px;
   background-color: transparent;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 12px; /* Reduzido de 14px */
 }
 
 .dropdown-opcoes {
@@ -206,7 +204,7 @@ input {
   }
 
   aside {
-    width: 240px; /* Mantém a largura da sidebar */
+    width: 170px; /* Mantém a largura da sidebar */
     border-right: 1px solid #ddd;
     border-bottom: none;
     min-height: calc(100vh - 100px);
@@ -214,25 +212,25 @@ input {
   }
 
   .conteudo-usuario {
-    padding: 30px; /* Mantém o espaçamento interno */
+    padding: 30px; 
   }
-
   .dados-grid {
-    grid-template-columns: 1fr 1fr; /* Mantém duas colunas */
-    gap: 20px 40px; /* Aumenta o espaçamento entre as colunas */
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px 40px; 
+    font-size: 10px;
   }
 
   .conteudo-titlle {
-    font-size: 20px; /* Reduz o tamanho da fonte */
+    font-size: 15px; 
   }
 
-  input {
-    font-size: 14px;
+  .input {
+    font-size: 100px; 
     padding: 10px 15px;
   }
 
   .dropdown-selecionado {
-    font-size: 14px;
+    font-size: 12px; /* Reduzido de 14px */
     padding: 10px 15px;
   }
 
@@ -245,9 +243,18 @@ input {
   aside li img {
     width: 18px; /* Mantém o tamanho proporcional */
   }
+  .dados-grid h1{
+    font-size: 12px; 
+  }
+  .usuario h2 {
+   display: none; 
+  }
+
+  .editar {
+    margin-top: 1px; 
+  }
 }
 
-/* Responsividade para telas entre 601px e 768px */
 @media (min-width: 601px) and (max-width: 768px) {
   .pagina {
     flex-direction: row;
@@ -255,33 +262,37 @@ input {
   }
 
   aside {
-    width: 240px;
+    width: 190px;
     border-right: 1px solid #ddd;
     border-bottom: none;
     min-height: calc(100vh - 100px);
     padding: 20px;
   }
 
+  .usuario h2 {
+   display: none; 
+  }
+  
   .conteudo-usuario {
     padding: 30px;
   }
 
   .dados-grid {
-    grid-template-columns: 1fr 1fr; /* Mantém duas colunas */
-    gap: 20px 50px; /* Aumenta o espaçamento entre as colunas */
+    grid-template-columns: 1fr 1fr; 
+  }
+    .dados-grid h1{
+    font-size: 15px; 
   }
 
   .conteudo-titlle {
-    font-size: 20px; /* Reduz o tamanho da fonte */
+    font-size: 18px; 
   }
-
   input {
-    font-size: 14px;
-    padding: 10px 15px;
+    font-size: 12px; 
   }
 
   .dropdown-selecionado {
-    font-size: 14px;
+    font-size: 12px; /* Reduzido de 14px */
     padding: 10px 15px;
   }
 
@@ -293,5 +304,9 @@ input {
 
   aside li img {
     width: 18px; /* Mantém o tamanho proporcional */
+  }
+
+  .editar {
+    margin-top: 1px;
   }
 }
