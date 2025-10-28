@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "../assets/css/catalogoPage.css";
 import Images from "../assets/img";
 import produtosData from "../assets/produtos.json";
@@ -9,7 +9,15 @@ import Cadastro from "../components/Cadastro";
 export default function CatalogoPage() {
   const [produtos, setProdutos] = useState([]);
   const [categoriaSelecionada, setCategoriaSelecionada] = useState(null);
+  const [carregando, setCarregando] = useState(true);
   const location = useLocation();
+  const navigate = useNavigate();
+
+  // Lista de categorias válidas para verificação
+  const categoriasValidas = [
+    'vestido', 'camiseta', 'canga', 'short', 'saia', 
+    'biquini', 'maio', 'sandalia', 'chinelo', 'sombrinha', 'bolsa'
+  ];
 
   // Carregar produtos direto do JSON importado
   useEffect(() => {
@@ -17,18 +25,29 @@ export default function CatalogoPage() {
       (p) => p.disponivel === true
     );
     setProdutos(disponiveis);
+    setCarregando(false);
   }, []);
 
-  // Atualizar categoria toda vez que mudar a URL
+  // Atualizar categoria toda vez que mudar a URL e verificar se é válida
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const cat = params.get("categoria");
+    
     if (cat) {
-      setCategoriaSelecionada(cat.toLowerCase());
+      const categoriaLower = cat.toLowerCase();
+      
+      // Verifica se a categoria é válida
+      if (!categoriasValidas.includes(categoriaLower)) {
+        // Categoria inválida - redireciona para 404
+        navigate("/404", { replace: true });
+        return;
+      }
+      
+      setCategoriaSelecionada(categoriaLower);
     } else {
       setCategoriaSelecionada(null);
     }
-  }, [location.search]);
+  }, [location.search, navigate]);
 
   // Filtrar produtos pela categoria (se houver)
   const produtosFiltrados = categoriaSelecionada
@@ -37,6 +56,14 @@ export default function CatalogoPage() {
     )
     : produtos;
 
+  // Verificar se há produtos após o carregamento
+  useEffect(() => {
+    if (!carregando && categoriaSelecionada && produtosFiltrados.length === 0) {
+      // Categoria existe mas não tem produtos - também redireciona para 404
+      navigate("/404", { replace: true });
+    }
+  }, [carregando, categoriaSelecionada, produtosFiltrados.length, navigate]);
+
   // Função para formatar nome da categoria
   const formatarCategoria = (cat) => {
     if (!cat) return "";
@@ -44,9 +71,23 @@ export default function CatalogoPage() {
     return primeiraLetra.endsWith("s") ? primeiraLetra : primeiraLetra + "s";
   };
 
+  // Se estiver carregando, mostra loading
+  if (carregando) {
+    return (
+      <div style={{ 
+        display: 'flex', 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        height: '50vh' 
+      }}>
+        <p>Carregando produtos...</p>
+      </div>
+    );
+  }
+
   return (
     <div>
-      <div className="cabecalho">
+      <div className="cabecalhoProduto">
         <div className="links-catalogo">
           <Link to="/">Inicial</Link>
           {categoriaSelecionada && (
@@ -61,11 +102,10 @@ export default function CatalogoPage() {
         </div>
 
         <Filtros />
-
       </div>
 
       <div className="produtos">
-        {produtosFiltrados.length === 0 && (
+        {produtosFiltrados.length === 0 && !categoriaSelecionada && (
           <p className="nenhum-produto">Nenhum produto encontrado.</p>
         )}
 

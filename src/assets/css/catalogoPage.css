@@ -102,7 +102,7 @@
     margin: 1px 0;
 }
 
-.cabecalho {
+.cabecalhoProduto {
     margin-top: 70px;
     display: flex;
     align-items: center;
@@ -116,7 +116,7 @@
     color: #837d7d;
     font-family: "Poppins", sans-serif;
     text-align: start;
-    width: 1700px;
+    width: 1870px;
     font-weight: 100;
     font-size: 14px;
     text-align: start;
@@ -142,6 +142,12 @@ span {
 
 section hr {
     width: 100%;
+}
+
+@media (max-width: 1024px) {
+    .links-catalogo {
+        width: 990px;
+    }
 }
 
 @media (max-width: 768px) {

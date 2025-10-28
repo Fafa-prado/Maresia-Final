@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Images from "../assets/img";
 import conteudos from "../assets/conteudos.json";
 import "../assets/css/sobreNos.css";
@@ -7,11 +7,21 @@ import Cadastro from "../components/Cadastro";
 
 export default function SobreNos() {
   const location = useLocation();
+  const navigate = useNavigate();
   const queryParams = new URLSearchParams(location.search);
   const secaoInicial = queryParams.get("secao") || "nossaHistoria";
 
   const [conteudoAtivo, setConteudoAtivo] = useState(secaoInicial);
   const [menusAbertos, setMenusAbertos] = useState({});
+
+  // Lista de todas as seções válidas (incluindo submenus)
+  const todasSecoesValidas = [
+    "nossaHistoria",
+    "regulamento", "freteGratis", "prazosEntregas", "formasPagamento", "pixParcelado",
+    "mareSerena", "floralAtlantico", "ecosDoMar", "perolaSalgada",
+    "melhorMarca", "tecidosLeves", "designInovador", "sustentabilidade",
+    "vivaPraia", "sonhoVerde"
+  ];
 
   const menuEstrutura = [
     { key: "nossaHistoria", titulo: conteudos.nossaHistoria.titulo },
@@ -57,6 +67,14 @@ export default function SobreNos() {
 
   // Quando a página abre ou o parâmetro muda
   useEffect(() => {
+    // Se a seção da URL não existe, redireciona para a página padrão (sem 404)
+    if (secaoInicial && !todasSecoesValidas.includes(secaoInicial)) {
+      // Remove parâmetro inválido da URL
+      navigate('/sobrenos', { replace: true });
+      setConteudoAtivo("nossaHistoria");
+      return;
+    }
+
     setConteudoAtivo(secaoInicial);
 
     // Verifica se a seção inicial pertence a algum submenu
@@ -69,7 +87,10 @@ export default function SobreNos() {
     } else {
       setMenusAbertos({});
     }
-  }, [secaoInicial]);
+  }, [secaoInicial, navigate]);
+
+  // Função para verificar se o conteúdo existe
+  const conteudoExiste = conteudoAtivo && conteudos[conteudoAtivo];
 
   return (
     <main className="conteudo">
@@ -162,7 +183,7 @@ export default function SobreNos() {
 
         {/* Conteúdo dinâmico */}
         <div id="conteudo-dinamico" className="conteudo-dinamico">
-          {conteudoAtivo && conteudos[conteudoAtivo] ? (
+          {conteudoExiste ? (
             <section>
               <h2>{conteudos[conteudoAtivo].titulo}</h2>
               {conteudos[conteudoAtivo].paragrafos?.map((p, i) => (
@@ -170,9 +191,16 @@ export default function SobreNos() {
               ))}
             </section>
           ) : (
-            <section>
-              <h2>Conteúdo não encontrado</h2>
-              <p>Selecione uma opção válida no menu.</p>
+            <section className="conteudo-nao-encontrado">
+              <h2>Seção não encontrada</h2>
+              <p>A seção "<strong>{conteudoAtivo}</strong>" não existe em nosso conteúdo.</p>
+              <p>Por favor, selecione uma das opções disponíveis no menu ao lado.</p>
+              <button 
+                onClick={() => setConteudoAtivo("nossaHistoria")}
+                className="btn-voltar-padrao"
+              >
+                Ver Nossa História
+              </button>
             </section>
           )}
         </div>

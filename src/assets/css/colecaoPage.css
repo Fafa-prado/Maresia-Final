@@ -2,8 +2,9 @@
     margin-top: 70px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    margin-left: 10px;
 }
 
 .links {
@@ -58,10 +59,18 @@ span {
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-left: 0;
     }
 
     .links {
         width: 974px;
+    }
+
+    .colecao-item img {
+        width: 1000px;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
     }
 }
 

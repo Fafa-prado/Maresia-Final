@@ -62,6 +62,9 @@ import CapaFloral from "./capa-floral.png";
 import CapaPerola from "./capa-perola.png";
 import CapaEcos from "./capa-ecos.png";
 
+// 404
+import Img404 from "./404.png";
+
 export default {
   // Header
   LogoHeader,
@@ -125,5 +128,8 @@ export default {
   CapaMare,
   CapaEcos,
   CapaFloral,
-  CapaPerola
+  CapaPerola,
+
+  // 404
+  Img404
 };

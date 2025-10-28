@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import produtosData from "../assets/produtos.json";
 import comentariosData from "../assets/comentarios.json"; // import direto se preferir
 import imagens from "../assets/img";
@@ -9,18 +9,30 @@ import Cadastro from "../components/Cadastro";
 
 export default function ProdutoPage() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [imagemAtiva, setImagemAtiva] = useState(0);
   const [comentarios, setComentarios] = useState([]);
   const [verMais, setVerMais] = useState(false);
   const [tamanhoSelecionado, setTamanhoSelecionado] = useState(null);
   const [corSelecionada, setCorSelecionada] = useState(null);
+  const [carregando, setCarregando] = useState(true);
 
   const produto = (produtosData.produtos || []).find(
     (p) => p.id === parseInt(id)
   );
 
   useEffect(() => {
-    if (!produto) return;
+    // Verificar se o produto existe
+    if (!produto) {
+      navigate("/404", { replace: true });
+      return;
+    }
+
+    // Verificar se o produto está disponível
+    if (produto.disponivel === false) {
+      navigate("/404", { replace: true });
+      return;
+    }
 
     setTamanhoSelecionado(null);
     setCorSelecionada(null);
@@ -31,9 +43,31 @@ export default function ProdutoPage() {
       (c) => c.produtoId === produto.id
     );
     setComentarios(comentariosProduto);
-  }, [produto]);
+    
+    setCarregando(false);
+  }, [produto, navigate]);
 
-  if (!produto) return <h2>Produto não encontrado</h2>;
+  // Verificar se o ID é válido
+  useEffect(() => {
+    if (!id || isNaN(parseInt(id))) {
+      navigate("/404", { replace: true });
+      return;
+    }
+  }, [id, navigate]);
+
+  // Se estiver carregando, mostra loading
+  if (carregando) {
+    return (
+      <div style={{ 
+        display: 'flex', 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        height: '50vh' 
+      }}>
+        <p>Carregando produto...</p>
+      </div>
+    );
+  }
 
   const nextImage = () => {
     setImagemAtiva((prev) => (prev + 1) % produto.imagens.length);

@@ -121,6 +121,21 @@ th {
   margin-left: 20px;
 }
 
+.cor, .cor2 {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+}
+
+.cor {
+  background-color: palevioletred;
+}
+
+.cor2 {
+  background-color: rgb(8, 135, 15);
+}
+
 /* Controle de quantidade */
 .quantidade {
   display: flex;
@@ -610,3 +625,190 @@ select option {
 #modalConfirmarExclusao .modal-conteudo .botoes-alerta button:last-child:hover {
   background-color: #5a6268;
 }
+
+.description {
+  height: 207px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.description h1, .detalhes-produto {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.detalhes-produto {
+  display: flex;
+  flex-direction: column;
+}
+
+.detalhes-produto p {
+  color: #a6a6a6;
+}
+
+.cor-medida {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  margin-top: 10px;
+  /* justify-content: space-between; */
+}
+
+@media (max-width: 768px) {
+  .lala img {
+    width: 50px;
+  }
+
+  .h1 {
+    font-size: 18px;
+  }
+
+  .container-sacola hr {
+    margin: 5px 0 5px;
+  }
+
+  thead th {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .produto-info {
+    gap: 0;
+  }
+
+  .produto-info h1 {
+    font-size: 15px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .produto-info p {
+    font-size: 13px;
+    color: #a6a6a6;
+    margin-bottom: 5px;
+  }
+
+  .description {
+    width: 150px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .detalhes-produto {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cor-medida {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .quantidade button {
+    width: 15px;
+    height: 15px;
+    padding: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .quantidade span {
+    margin: 0;
+  }
+
+  .dados-usuario2 {
+    padding-top: 0;
+  }
+
+  .dados-usuario2 h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  button img {
+    width: 25px;
+  }
+
+  .frete-total p {
+    font-size: 15px;
+  }
+
+  .escrita h2 {
+    font-size: 18px;
+    margin-top: 15px;
+  }
+
+  .escrita h3 {
+    font-size: 14px;
+  }
+
+  .resumo .cupom input {
+    height: 30px;
+  }
+
+  .resumo .cupom button {
+    padding: 8px 5px;
+  }
+
+  .valores p, .valores span {
+    font-size: 13px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+}
+
+  @media (max-width: 600px) {
+    /* .conteudo-principal {
+      width: 660px;
+    } */
+
+    td {
+      padding: 10px 5px;
+      font-size: 13px;
+    }
+
+    .produto-info img, .description {
+      width: 120px;
+      height: 166px;
+    }
+
+    .produto-info h1 {
+      font-size: 12px;
+    }
+
+    .produto-info p {
+      font-size: 10px;
+    }
+
+    .medida {
+      width: 20px;
+      height: 20px;
+    }
+
+    .cor, .cor2 {
+      width: 15px;
+      height: 15px;
+    }
+
+    #entrega {
+      display: none;
+    }
+
+    .quantidade span {
+      font-size: 13px;
+    }
+
+    .quantidade button {
+      padding: 10px;
+    } 
+
+    .dados-usuario2 {
+      padding: 0;
+    }
+  }

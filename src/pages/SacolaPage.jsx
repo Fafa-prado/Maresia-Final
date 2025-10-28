@@ -214,7 +214,7 @@ export default function Sacola() {
           <thead>
             <tr>
               <th id="produto-title">Produto</th>
-              <th>Entrega</th>
+              <th id="entrega">Entrega</th>
               <th>Preço</th>
               <th>Quantidade</th>
               <th>Total</th>
@@ -226,17 +226,19 @@ export default function Sacola() {
                 <td>
                   <div className="produto-info">
                     <img src={p.img} alt="Produto" />
-                    <div>
+                    <div className="description">
                       <h1>{p.nome}</h1>
-                      <p>{p.descricao}</p>
                       <div className="detalhes-produto">
-                        {p.medida && <p className="medida">{p.medida}</p>}
-                        {p.cor && <div className={p.cor}></div>}
+                        <p>{p.descricao}</p>
+                        <div className="cor-medida">
+                          {p.medida && <p className="medida">{p.medida}</p>}
+                          {p.cor && <div className={p.cor}></div>}
+                        </div>
                       </div>
                     </div>
                   </div>
                 </td>
-                <td>7 dias úteis</td>
+                <td id="entrega">7 dias úteis</td>
                 <td>R$ {p.preco.toFixed(2).replace(".", ",")}</td>
                 <td>
                   <div className="quantidade">

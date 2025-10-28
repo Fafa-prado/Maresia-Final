@@ -130,6 +130,10 @@ main {
         width: 94.75%;
 }
 
+.colecao-nome {
+    font-family: "Poppins", sans-serif;
+}
+
 @media (max-width: 1024px) {
     .colecao-item{
         width: 95%;

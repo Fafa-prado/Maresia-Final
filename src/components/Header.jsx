@@ -192,11 +192,11 @@ export default function Header() {
 
 
         {/* MENU MOBILE */}
+        {/* MENU MOBILE */}
         <div className={`menu-mobile ${menuMobileAberto ? "aberto" : ""}`}>
           <div className="fechar-menu" onClick={() => setMenuMobileAberto(false)}>✕</div>
           <div className="busca-mobile">
           </div>
-
 
           <ul>
             <li>
@@ -204,33 +204,74 @@ export default function Header() {
                 Produtos <span><img src={Images.setaEsquerda} alt="Seta-baixo" className="seta-para-baixo" /></span>
               </a>
 
-
               <div className="submenu-mobile">
-                {[ /* seus grupos de submenu mobile aqui, mantidos como antes */].map((grupo, index) => (
-                  <div key={index} className="submenu-grupo">
-                    <div
-                      className="ul-tittle"
-                      onClick={(e) => e.currentTarget.parentElement.classList.toggle("open")}
-                    >
-                      {grupo.titulo}
-                    </div>
-                    <ul>
-                      {grupo.itens.map((item, i) => (
-                        <li key={i}>
-                          <Link
-                            to={`/catalogo?categoria=${item.categoria}`}
-                            onClick={() => setMenuMobileAberto(false)}
-                          >
-                            {item.nome}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
+                <div className="submenu-grupo">
+                  <div
+                    className="ul-tittle"
+                    onClick={(e) => e.currentTarget.parentElement.classList.toggle("open")}
+                  >
+                    Saídas de praia
                   </div>
-                ))}
+                  <ul>
+                    <li><Link to="/catalogo?categoria=vestido" onClick={() => setMenuMobileAberto(false)}>Vestidos</Link></li>
+                    <li><Link to="/catalogo?categoria=camiseta" onClick={() => setMenuMobileAberto(false)}>Camisetas</Link></li>
+                    <li><Link to="/catalogo?categoria=canga" onClick={() => setMenuMobileAberto(false)}>Cangas</Link></li>
+                  </ul>
+                </div>
+
+                <div className="submenu-grupo">
+                  <div
+                    className="ul-tittle"
+                    onClick={(e) => e.currentTarget.parentElement.classList.toggle("open")}
+                  >
+                    Peças de baixo
+                  </div>
+                  <ul>
+                    <li><Link to="/catalogo?categoria=short" onClick={() => setMenuMobileAberto(false)}>Shorts</Link></li>
+                    <li><Link to="/catalogo?categoria=saia" onClick={() => setMenuMobileAberto(false)}>Saias</Link></li>
+                  </ul>
+                </div>
+
+                <div className="submenu-grupo">
+                  <div
+                    className="ul-tittle"
+                    onClick={(e) => e.currentTarget.parentElement.classList.toggle("open")}
+                  >
+                    Trajes de banho
+                  </div>
+                  <ul>
+                    <li><Link to="/catalogo?categoria=biquini" onClick={() => setMenuMobileAberto(false)}>Biquínis</Link></li>
+                    <li><Link to="/catalogo?categoria=maio" onClick={() => setMenuMobileAberto(false)}>Maiôs</Link></li>
+                  </ul>
+                </div>
+
+                <div className="submenu-grupo">
+                  <div
+                    className="ul-tittle"
+                    onClick={(e) => e.currentTarget.parentElement.classList.toggle("open")}
+                  >
+                    Calçados
+                  </div>
+                  <ul>
+                    <li><Link to="/catalogo?categoria=sandalia" onClick={() => setMenuMobileAberto(false)}>Sandálias</Link></li>
+                    <li><Link to="/catalogo?categoria=chinelo" onClick={() => setMenuMobileAberto(false)}>Chinelos</Link></li>
+                  </ul>
+                </div>
+
+                <div className="submenu-grupo">
+                  <div
+                    className="ul-tittle"
+                    onClick={(e) => e.currentTarget.parentElement.classList.toggle("open")}
+                  >
+                    Adereços
+                  </div>
+                  <ul>
+                    <li><Link to="/catalogo?categoria=sombrinha" onClick={() => setMenuMobileAberto(false)}>Sombrinhas</Link></li>
+                    <li><Link to="/catalogo?categoria=bolsa" onClick={() => setMenuMobileAberto(false)}>Bolsas</Link></li>
+                  </ul>
+                </div>
               </div>
             </li>
-
 
             <li>
               <a onClick={(e) => e.currentTarget.parentElement.classList.toggle("open")}>
@@ -242,7 +283,6 @@ export default function Header() {
                 <li><Link to="/SobreNos?secao=freteGratis" onClick={() => setMenuMobileAberto(false)}>Frete grátis</Link></li>
               </ul>
             </li>
-
 
             <li><Link to="/colecoes" onClick={() => setMenuMobileAberto(false)}>Coleções</Link></li>
           </ul>
@@ -277,23 +317,46 @@ export default function Header() {
           ) : (
             itens.map(item => (
               <div className="item" key={item.id}>
+                {/* Imagem à esquerda */}
                 <img src={item.img} alt={item.nome} />
+
                 <div className="detalhes-item">
-                  <div className="detalhes-produto">
+                  {/* Informações do produto empilhadas à direita */}
+                  <div className="detalhes-produto-header">
                     <h1>{item.nome}</h1>
                     <p>R$ {item.preco.toFixed(2).replace(".", ",")}</p>
-                    {item.medida && <p className="medida">{item.medida}</p>}
-                    {item.cor && <div className="cor" style={{ backgroundColor: item.cor }}></div>}
+
+                    {/* Container para tamanho e cor */}
+                    <div className="info-adicional">
+                      {item.medida && <div className="medida">{item.medida}</div>}
+                      {item.cor && (
+                        <div className="cor-indicador">
+                          <div
+                            className={item.cor === "branca" ? "corh" : "cor2h"}
+                            style={{ backgroundColor: item.cor }}
+                          ></div>
+                        </div>
+                      )}
+                    </div>
                   </div>
-                  <div className="quantidade">
-                    <button onClick={() => alterarQuantidade(item.id, -1)}>-</button>
-                    <p>{item.qtd} uni.</p>
-                    <button onClick={() => alterarQuantidade(item.id, 1)}>+</button>
+
+                  {/* Container para quantidade e lixeira */}
+                  <div className="controles-item">
+                    <div className="quantidade">
+                      <button onClick={() => alterarQuantidade(item.id, -1)}>-</button>
+                      <p>{item.qtd} uni.</p>
+                      <button onClick={() => alterarQuantidade(item.id, 1)}>+</button>
+                    </div>
+
+                    <button
+                      className="excluir"
+                      onClick={() => excluirItemComAlerta(item.id)}
+                      aria-label="Remover item"
+                    >
+                      <img src={Images.LixeiraIcon} alt="Excluir" />
+                    </button>
                   </div>
                 </div>
-                <button className="excluir" onClick={() => excluirItemComAlerta(item.id)}>
-                  <img src={Images.LixeiraIcon} alt="Excluir" />
-                </button>
               </div>
             ))
           )}
