@@ -573,8 +573,10 @@ select option {
   background: rgba(0, 0, 0, 0.5);
   justify-content: center;
   align-items: center;
-  z-index: 3000; /* Aumentei o z-index para garantir que o modal fique acima de outros elementos */
+  z-index: 9999 !important; /* Força o modal acima de tudo */
+  pointer-events: all !important; /* Garante que os cliques funcionem */
 }
+
 
 #modalConfirmarExclusao .modal-conteudo {
   background: #fff;

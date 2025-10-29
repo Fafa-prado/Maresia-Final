@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Images from "../assets/img"; // ajuste o caminho das imagens
 import "../assets/css/sacola.css";
 
+
 export default function Sacola() {
   // Produtos no carrinho
   const [produtos, setProdutos] = useState([
@@ -27,6 +28,7 @@ export default function Sacola() {
     },
   ]);
 
+
   // Endereços
   const [enderecos, setEnderecos] = useState([]);
   const [novoEndereco, setNovoEndereco] = useState({
@@ -40,25 +42,37 @@ export default function Sacola() {
   });
   const [enderecoEditando, setEnderecoEditando] = useState(null); // controle de edição
 
+
   // Controle de modais
   const [modalEnderecoAberto, setModalEnderecoAberto] = useState(false);
   const [modalConfirmacaoAberto, setModalConfirmacaoAberto] = useState(false);
 
+
   // Formas de pagamento
   const [formaPagamento, setFormaPagamento] = useState("cartao"); // valor padrão
+
 
   // Alerta
   const [alerta, setAlerta] = useState(null);
   const [alertaConfirmacao, setAlertaConfirmacao] = useState(null);
 
+
   const mostrarAlerta = (mensagem, tipo = "info") => {
     setAlerta({ mensagem, tipo });
   };
+
 
   // Resumo do pedido
   const subtotal = produtos.reduce((acc, p) => acc + p.preco * p.quantidade, 0);
   const [codigoCupom, setCodigoCupom] = useState("");
   const [desconto, setDesconto] = useState(0);
+
+
+  // CEP válido
+  const [cepValido, setCepValido] = useState(false);
+
+
+
 
   // ==================== QUANTIDADE ====================
   const alterarQuantidade = (id, delta) => {
@@ -71,29 +85,47 @@ export default function Sacola() {
     );
   };
 
+
   // ==================== BUSCAR CEP ====================
-  const buscarCep = async (cep) => {
-    const cepLimpo = cep.replace(/\D/g, "");
-    if (cepLimpo.length === 8) {
-      try {
-        const res = await fetch(`https://viacep.com.br/ws/${cepLimpo}/json/`);
-        const data = await res.json();
-        if (!data.erro) {
-          setNovoEndereco((prev) => ({
-            ...prev,
-            cidade: data.localidade,
-            bairro: data.bairro,
-            rua: data.logradouro,
-            estado: data.uf,
-          }));
-        } else {
-          mostrarAlerta("CEP não encontrado.", "erro");
-        }
-      } catch {
-        mostrarAlerta("Erro ao buscar CEP.", "erro");
+ const buscarCep = async (cep) => {
+  const cepLimpo = cep.replace(/\D/g, "");
+  if (cepLimpo.length === 8) {
+    try {
+      const res = await fetch(`https://viacep.com.br/ws/${cepLimpo}/json/`);
+      const data = await res.json();
+      if (!data.erro) {
+        setNovoEndereco((prev) => ({
+          ...prev,
+          cidade: data.localidade,
+          bairro: data.bairro,
+          rua: data.logradouro,
+          estado: data.uf,
+        }));
+        setCepValido(true); // CEP encontrado
+      } else {
+        mostrarAlerta("CEP não encontrado.", "erro");
+        setNovoEndereco((prev) => ({
+          ...prev,
+          cidade: "",
+          bairro: "",
+          rua: "",
+          estado: "",
+        }));
+        setCepValido(false); // CEP inválido
       }
+    } catch {
+      mostrarAlerta("Erro ao buscar CEP.", "erro");
+      setCepValido(false);
     }
-  };
+  } else {
+    setCepValido(false); // CEP incompleto
+  }
+};
+
+
+
+
+
 
   useEffect(() => {
     if (novoEndereco.cep.replace(/\D/g, "").length === 8) {
@@ -101,14 +133,25 @@ export default function Sacola() {
     }
   }, [novoEndereco.cep]);
 
+
   // ==================== ENDEREÇOS ====================
   const salvarEndereco = (e) => {
     e.preventDefault();
+
+
+    if (!novoEndereco.cidade || !novoEndereco.estado || !novoEndereco.bairro) {
+      mostrarAlerta("CEP não encontrado ou incompleto.", "erro");
+      return;
+    }
+
+
+
 
     if (!novoEndereco.cep || !novoEndereco.rua || !novoEndereco.numero) {
       mostrarAlerta("Preencha todos os campos obrigatórios antes de salvar.", "erro");
       return;
     }
+
 
     if (enderecoEditando !== null) {
       // Editando endereço existente
@@ -125,14 +168,17 @@ export default function Sacola() {
           end.numero === novoEndereco.numero
       );
 
+
       if (existe) {
         mostrarAlerta("Endereço já cadastrado!", "info");
         return;
       }
 
+
       setEnderecos((prev) => [...prev, novoEndereco]);
       mostrarAlerta("Endereço adicionado com sucesso!", "sucesso");
     }
+
 
     setNovoEndereco({
       cep: "",
@@ -146,6 +192,7 @@ export default function Sacola() {
     setModalEnderecoAberto(false);
   };
 
+
   const confirmarExclusaoEndereco = (index) => {
     setAlertaConfirmacao({
       mensagem: "Tem certeza que deseja excluir este endereço?",
@@ -157,15 +204,18 @@ export default function Sacola() {
     });
   };
 
+
   const deletarEndereco = (index) => {
     setEnderecos((prev) => prev.filter((_, i) => i !== index));
   };
+
 
   const editarEndereco = (index) => {
     setEnderecoEditando(index);
     setNovoEndereco({ ...enderecos[index] });
     setModalEnderecoAberto(true);
   };
+
 
   // ==================== CONFIRMAR PEDIDO ====================
   const confirmarPedido = () => {
@@ -180,12 +230,14 @@ export default function Sacola() {
     setModalConfirmacaoAberto(true);
   };
 
+
   // ==================== VALIDAR CUPOM ====================
   const validarCupom = (codigo) => {
     const cuponsValidos = {
       "DESCONTO10": 0.1, // 10% de desconto
       "DESCONTO20": 0.2, // 20% de desconto
     };
+
 
     if (cuponsValidos[codigo]) {
       mostrarAlerta("Cupom aplicado com sucesso!", "sucesso");
@@ -196,6 +248,7 @@ export default function Sacola() {
     }
   };
 
+
   return (
     <div className="container-sacola">
       <div className="lala">
@@ -203,6 +256,7 @@ export default function Sacola() {
         <h1 className="h1">Sacola</h1>
       </div>
       <hr style={{ height: "3px", backgroundColor: "#333" }} />
+
 
       {/* TABELA DE PRODUTOS */}
       {produtos.length === 0 ? (
@@ -257,6 +311,7 @@ export default function Sacola() {
         </table>
       )}
 
+
       {/* CONTEÚDO PRINCIPAL */}
       <div className="conteudo-principal">
         <div className="inferior">
@@ -302,6 +357,7 @@ export default function Sacola() {
           </section>
         </div>
 
+
         {/* RESUMO */}
         <div className="resumo">
           <div className="escrita">
@@ -342,12 +398,14 @@ export default function Sacola() {
         </div>
       </div>
 
+
       {/* MODAL ENDEREÇO */}
       {modalEnderecoAberto && (
         <div className="modal-endereco">
           <div className="modal-conteudo">
             <form onSubmit={salvarEndereco}>
               <h2>{enderecoEditando !== null ? "Editar endereço" : "Adicionar um novo endereço"}</h2>
+
 
               <div className="dados-de-endereco">
                 <label>CEP:</label>
@@ -420,7 +478,11 @@ export default function Sacola() {
                 />
               </div>
               <div className="buttons">
-                <button type="submit">Salvar endereço</button>
+               <button type="submit" disabled={!cepValido}>
+  Salvar endereço
+</button>
+
+
                 <button type="button" onClick={() => { setModalEnderecoAberto(false); setEnderecoEditando(null); }}>
                   Cancelar
                 </button>
@@ -430,12 +492,14 @@ export default function Sacola() {
         </div>
       )}
 
+
       {/* MODAL CONFIRMAÇÃO */}
       {modalConfirmacaoAberto && (
         <div className="modal-endereco">
           <div className="modal-conteudo">
             <h2>Confirmação do pedido</h2>
             <p><span>Comprador:</span> Fulano de tal</p>
+
 
             <h3>Escolha o endereço de entrega:</h3>
             <div className="select-endereco">
@@ -452,6 +516,7 @@ export default function Sacola() {
               ))}
             </div>
 
+
             <h3>Forma de pagamento:</h3>
             <select
               value={formaPagamento}
@@ -463,6 +528,7 @@ export default function Sacola() {
               <option value="boleto">Boleto</option>
             </select>
 
+
             <h3>Parcelamento:</h3>
             <select>
               {Array.from({ length: 12 }, (_, i) => i + 1).map((n) => (
@@ -472,9 +538,11 @@ export default function Sacola() {
               ))}
             </select>
 
+
             <div className="valor-final">
               <span>Total: R$ {subtotal.toFixed(2).replace(".", ",")}</span>
             </div>
+
 
             <div className="buttons">
               <button
@@ -494,6 +562,7 @@ export default function Sacola() {
           </div>
         </div>
       )}
+
 
       {/* Contêiner para os alertas */}
       <div id="alert-container">
@@ -519,3 +588,6 @@ export default function Sacola() {
     </div>
   );
 }
+
+
+
