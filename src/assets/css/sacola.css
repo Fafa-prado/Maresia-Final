@@ -814,3 +814,27 @@ select option {
       padding: 0;
     }
   }
+
+ @media (max-width: 600px) {
+  .endereco {
+    padding: 6px; 
+    border-radius: 6px; 
+  }
+
+  .endereco h3 {
+    font-size: 12px; 
+  }
+
+  .endereco h2 {
+    font-size: 11.5px; 
+  }
+
+  .cep h3 {
+    font-size: 11.5px;
+  }
+
+  .novo-endereco button {
+    padding: 8px 10px; 
+    font-size: 12px; 
+  }
+}
