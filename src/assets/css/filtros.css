@@ -52,7 +52,7 @@
     position: absolute;
     right: 0;
     background-color: white;
-    z-index: 9999;
+    z-index: 10;
     padding: 20px;
     border: 1px solid #ffffff;
     width: 100%;

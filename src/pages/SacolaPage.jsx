@@ -87,40 +87,40 @@ export default function Sacola() {
 
 
   // ==================== BUSCAR CEP ====================
- const buscarCep = async (cep) => {
-  const cepLimpo = cep.replace(/\D/g, "");
-  if (cepLimpo.length === 8) {
-    try {
-      const res = await fetch(`https://viacep.com.br/ws/${cepLimpo}/json/`);
-      const data = await res.json();
-      if (!data.erro) {
-        setNovoEndereco((prev) => ({
-          ...prev,
-          cidade: data.localidade,
-          bairro: data.bairro,
-          rua: data.logradouro,
-          estado: data.uf,
-        }));
-        setCepValido(true); // CEP encontrado
-      } else {
-        mostrarAlerta("CEP não encontrado.", "erro");
-        setNovoEndereco((prev) => ({
-          ...prev,
-          cidade: "",
-          bairro: "",
-          rua: "",
-          estado: "",
-        }));
-        setCepValido(false); // CEP inválido
+  const buscarCep = async (cep) => {
+    const cepLimpo = cep.replace(/\D/g, "");
+    if (cepLimpo.length === 8) {
+      try {
+        const res = await fetch(`https://viacep.com.br/ws/${cepLimpo}/json/`);
+        const data = await res.json();
+        if (!data.erro) {
+          setNovoEndereco((prev) => ({
+            ...prev,
+            cidade: data.localidade,
+            bairro: data.bairro,
+            rua: data.logradouro,
+            estado: data.uf,
+          }));
+          setCepValido(true); // CEP encontrado
+        } else {
+          mostrarAlerta("CEP não encontrado.", "erro");
+          setNovoEndereco((prev) => ({
+            ...prev,
+            cidade: "",
+            bairro: "",
+            rua: "",
+            estado: "",
+          }));
+          setCepValido(false); // CEP inválido
+        }
+      } catch {
+        mostrarAlerta("Erro ao buscar CEP.", "erro");
+        setCepValido(false);
       }
-    } catch {
-      mostrarAlerta("Erro ao buscar CEP.", "erro");
-      setCepValido(false);
+    } else {
+      setCepValido(false); // CEP incompleto
     }
-  } else {
-    setCepValido(false); // CEP incompleto
-  }
-};
+  };
 
 
 
@@ -143,8 +143,6 @@ export default function Sacola() {
       mostrarAlerta("CEP não encontrado ou incompleto.", "erro");
       return;
     }
-
-
 
 
     if (!novoEndereco.cep || !novoEndereco.rua || !novoEndereco.numero) {
@@ -207,7 +205,9 @@ export default function Sacola() {
 
   const deletarEndereco = (index) => {
     setEnderecos((prev) => prev.filter((_, i) => i !== index));
+    mostrarAlerta("Endereço removido com sucesso!", "info");
   };
+
 
 
   const editarEndereco = (index) => {
@@ -478,9 +478,9 @@ export default function Sacola() {
                 />
               </div>
               <div className="buttons">
-               <button type="submit" disabled={!cepValido}>
-  Salvar endereço
-</button>
+                <button type="submit" disabled={!cepValido}>
+                  Salvar endereço
+                </button>
 
 
                 <button type="button" onClick={() => { setModalEnderecoAberto(false); setEnderecoEditando(null); }}>
