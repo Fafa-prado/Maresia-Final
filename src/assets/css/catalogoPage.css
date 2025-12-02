@@ -1,0 +1,207 @@
+.container {
+    width: 100%;
+}
+
+.colecoes-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+}
+
+.colecoes-title p {
+    margin-top: 30px;
+}
+
+.colecoes-title a {
+    color: #6b6161;
+}
+
+.colecoes-title span {
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.colecoes-title h1 {
+    margin-top: 0;
+}
+
+.catalogo-colecoes-container hr {
+    margin-top: 8px;
+}
+
+.produtos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1800px;
+    width: 100%;
+    font-family: "Abel", sans-serif;
+    justify-content: center;
+    margin: 30px 0 0 0;
+    padding: 0;
+}
+
+/* CORREÇÃO: Container da imagem com posição relativa */
+.img-container {
+    position: relative;
+    display: block;
+}
+
+.img-container img {
+    width: 75px;
+    /* height: 73px; */
+}
+
+.produto-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 350px;
+    border-radius: 12px;
+    padding: 12px;
+    background-color: #fff;
+}
+
+.produto-card img {
+    width: 100%;
+    border-radius: 2px;
+    box-shadow: 1px 2px 5px 2px rgba(0, 0, 0, 0.3);
+}
+
+.produto-card h3 {
+    margin: 5px 0 1px;
+    font-size: 17px;
+    text-align: center;
+    color: #6b6161;
+    font-weight: 550;
+}
+
+.produto-card p {
+    margin: 5px 0;
+    font-size: 15px;
+}
+
+.produtos.justify-left {
+    justify-content: flex-start;
+}
+
+.espaco-flex {
+    flex-grow: 9999;
+    width: 0;
+    height: 0;
+}
+
+.cores {
+    display: flex;
+    gap: 5px;
+}
+
+.cor-bolinha {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.preco-cores {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1px 0;
+}
+
+/* CORREÇÃO: Badge de novidade com posicionamento absoluto */
+.novidade-badge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 70px;
+    height: 90px;
+    box-shadow: none !important;
+}
+
+.novidade-badge img {
+    width: 100%;
+    height: 100%;
+    box-shadow: none !important;
+}
+
+.cabecalhoProduto {
+    margin-top: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.links-catalogo {
+    color: #837d7d;
+    font-family: "Poppins", sans-serif;
+    text-align: start;
+    width: 1870px;
+    font-weight: 100;
+    font-size: 14px;
+    text-align: start;
+}
+
+.links-catalogo a {
+    color: #837d7d;
+}
+
+span {
+    color: #084550;
+    font-weight: bold;
+}
+
+.filtros {
+    width: 1700px;
+}
+
+.filter {
+    width: 100%;
+}
+
+section hr {
+    width: 100%;
+}
+
+/* RESPONSIVIDADE PARA O BADGE DE NOVIDADE */
+@media (max-width: 1024px) {
+    .links-catalogo {
+        width: 990px;
+    }
+    
+    .novidade-badge {
+        width: 60px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .links-catalogo {
+        width: 728px;
+    }
+    
+    .novidade-badge {
+        width: 50px;
+        height: 70px;
+    }
+}
+
+@media (max-width: 600px) {
+    .links-catalogo {
+        width: 550px;
+    }
+
+    .links-catalogo span {
+        font-size: 17px;
+    }
+    
+    .novidade-badge {
+        width: 40px;
+        height: 60px;
+    }
+}

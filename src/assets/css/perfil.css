@@ -1,0 +1,685 @@
+/* Ajuste global para impedir que o rodapé sobreponha o conteúdo */
+main {
+  min-height: calc(100vh - 180px); /* joga o footer para baixo */
+  display: block;
+  width: 100%;
+  background: #f6f6f6;
+  padding-top: 20px;
+  box-sizing: border-box;
+}
+
+/* Página principal */
+.pagina {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch !important; /* CORRIGIDO: impede encolhimento */
+  width: 100%;
+  gap: 30px;
+  background-color: #fff;
+}
+
+/* Sidebar */
+aside {
+  margin-top: 10px;
+  width: 240px;
+  background: #fcfbfb;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+  min-height: calc(100vh - 100px);
+  font-family: "Poppins", sans-serif;
+}
+
+.usuario {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 20px;
+}
+
+.usuario img {
+  width: 50px;
+}
+
+.usuario h2 {
+  font-size: 14px;
+  color: #524b4b;
+}
+
+aside hr {
+  background-color: #231f20;
+  height: 1.5px;
+  width: 100%;
+  margin: 10px 0;
+  border: 0;
+  border-top: 1px solid #ccc;
+}
+
+aside ul {
+  list-style: none;
+  margin-top: 20px;
+  padding: 0;
+}
+
+aside li {
+  padding-top: 8px;
+}
+
+aside li a {
+  font-size: 13.5px;
+  color: #333;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* aside li a:hover {
+  color: #555;
+  font-weight: 600;
+} */
+
+/* Conteúdo principal */
+.conteudo-usuario {
+  flex: 1;
+  padding: 40px 50px;
+  background-color: #fff;
+  font-family: "Poppins", sans-serif;
+  border-radius: 12px;
+  padding-bottom: 120px; /* CORRIGIDO - evita encostar no rodapé */
+  box-sizing: border-box;
+}
+
+.conteudo-titlle {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #524b4b;
+}
+
+/* Grade de dados */
+.dados-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 60px;
+  font-size: 10px;
+  color: #6b6161;
+  margin-bottom: 20px;
+  font-weight: 100;
+}
+
+.dados-grid p {
+  font-size: 13px;
+}
+
+/* Botão editar */
+.editar {
+  margin-top: 50px;
+  font-size: 14px;
+  background-color: transparent;
+  border: transparent;
+  cursor: pointer;
+  color: #524b4b;
+  text-decoration: underline;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.editar img {
+  width: 18px;
+}
+
+label {
+  margin-left: 15px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 10px 15px;
+  border: 2px solid #524b4b;
+  border-radius: 30px;
+  background-color: transparent;
+  color: #6b6161;
+  outline: none;
+  font-size: 12px;
+}
+
+.salvar {
+  color: white;
+  background-color: #524b4b;
+  border-radius: 30px;
+  padding: 12px 14px;
+  border: 0;
+  font-size: 14px;
+  margin-top: 50px;
+  cursor: pointer;
+  width: 150px;
+}
+
+.dropdown-genero {
+  position: relative;
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  color: #6b6161;
+}
+
+.dropdown-selecionado {
+  padding: 10px 15px;
+  border: 2px solid #524b4b;
+  border-radius: 30px;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.dropdown-opcoes {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  border: 2px solid #524b4b;
+  border-top: none;
+  background-color: #fff;
+  border-radius: 0 0 20px 20px;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.dropdown-opcoes li {
+  padding: 12px 15px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-opcoes li:hover {
+  background-color: #f0f0f0;
+}
+
+.dropdown-genero.ativo .dropdown-opcoes {
+  max-height: 200px;
+  opacity: 1;
+}
+
+/* RESPONSIVO */
+@media (max-width: 600px) {
+  .pagina {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  aside {
+    width: 170px;
+  }
+
+  .conteudo-usuario {
+    padding: 30px;
+  }
+
+  .dados-grid {
+    gap: 20px 40px;
+  }
+
+  .conteudo-titlle {
+    font-size: 15px;
+  }
+
+  .usuario h2 {
+    display: none;
+  }
+
+  .editar {
+    margin-top: 1px;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 768px) {
+  .pagina {
+    gap: 20px;
+  }
+
+  aside {
+    width: 190px;
+  }
+
+  .usuario h2 {
+    display: none;
+  }
+}
+
+
+
+/* ---------------------- */
+/*      TÍTULO            */
+/* ---------------------- */
+.pedidos-wrapper {
+  margin-top: 40px;
+}
+
+.pedidos-titulo {
+  font-size: 22px;
+  color: #2a2a2a;
+  cursor: pointer;
+  margin-bottom: 25px;
+}
+
+
+/*BOLAS*/
+
+.status-etapas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 35px;
+}
+
+.etapa-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.etapa {
+  text-align: center;
+  cursor: pointer;
+}
+
+.etapa img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #ccc; /* cinza padrão */
+  transition: all 0.3s;
+}
+
+.etapa.ativa img {
+  background-color: #003c39; /* verde quando clicada */
+}
+
+.etapa span {
+  margin-top: 5px;
+  display: block;
+  font-size: 14px;
+  color: #333;
+}
+
+/* LINHAS ENTRE AS BOLINHAS */
+.linha {
+  width: 80px;
+  height: 4px;
+  background: #ccc;
+  border-radius: 10px;
+  margin: 0 5px; /* espaço entre bolinhas e linha */
+  transition: all 0.3s;
+}
+
+.linha.ativa {
+  background: #003c39; /* verde quando etapa anterior está ativa */
+}
+
+/* ---------------------- */
+/*   DETALHES ABERTOS     */
+/* ---------------------- */
+.pedido-detalhes {
+  padding: 20px;
+  background: #ffffff;
+
+}
+
+.pedido-detalhes span{
+color: black;
+font-size: 15px;
+ font-family: "Poppins", sans-serif;
+  font-weight: 300;
+}
+
+.linha-item {
+  display: grid;
+  grid-template-columns: 1fr 80px 40px 100px;
+  padding: 8px 0;
+  border-bottom: 1px solid #e8e8e8;
+  font-size: 14px;
+}
+
+.infos-pedido p {
+  margin: 8px 0;
+  font-size: 14px;
+  line-height: 20px;
+  margin-top: 20px;
+  color: #6b6161;
+}
+
+/* ---------------------- */
+/*       AVALIAÇÃO        */
+/* ---------------------- */
+
+.avaliacao-bloco {
+  margin-top: 20px;
+}
+
+.avaliacao-bloco textarea {
+  width: 100%;
+  height: 80px;
+  border-radius: 12px;
+  padding: 12px;
+  border: 1.5px solid #bfbfbf;
+  resize: none;
+  margin-top: 10px;
+  font-family: "Poppins", sans-serif;
+}
+
+.btn-concluir {
+  margin-top: 10px;
+  background: #003c39;
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.estrelas {
+  display: flex;
+  gap: 5px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.estrela {
+  color: #ccc;
+  transition: color 0.2s;
+}
+
+.estrela.ativa {
+  color: gold;
+}
+
+
+
+
+.pedido-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: #003c39; /* verde quando etapa anterior está ativa */
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 5px;
+  transition: all 0.3s ease;
+}
+
+
+.pedido-header .pedido-data {
+  font-size: 12px; /* data menor */
+}
+
+/* SETA ESTILIZADA */
+.seta-css {
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid white; /* seta apontando para baixo */
+  transition: all 0.3s ease;
+}
+
+.pedido-header.aberto .seta-css {
+  border-top: none;
+  border-bottom: 7px solid white; /* seta apontando para cima */
+}
+
+.pedido-data{
+  color: white;
+    font-weight: 300;
+}
+
+/* seta preta maior e mais alta */
+.seta-titulo {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 10px; /* espaço entre texto e seta */
+  vertical-align: middle; /* alinhamento vertical com o texto */
+  border-left: 10px solid transparent;  /* aumenta a largura da base */
+  border-right: 10px solid transparent;
+  border-top: 10px solid black; /* seta para baixo maior */
+  transition: all 0.3s ease;
+}
+
+.pedidos-titulo.aberto .seta-titulo {
+  border-top: none;
+  border-bottom: 10px solid black; /* seta para cima */
+}
+
+
+/* ======= CONTAINER GERAL ======= */
+.avaliacao-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: "Poppins", sans-serif;
+  background-color: #fff;
+  color: #333;
+}
+
+.avaliacao-container h2 {
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 30px;
+}
+
+/* ======= LISTA DE PRODUTOS ======= */
+.produtos-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+}
+
+/* ======= ITEM DE PRODUTO ======= */
+.produto-item {
+  width: 260px;
+  border: 2px solid transparent;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #f4f4f4;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.produto-item img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-bottom: 1px solid #ddd;
+}
+
+.produto-info {
+  padding: 15px;
+}
+
+.produto-info h3 {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.produto-info p {
+  font-size: 13px;
+  color: #666;
+}
+
+
+
+/* BOTÃO CONCLUIR */
+.avaliacao-bloco .btn-concluir {
+  margin-top: 10px;
+  background-color: #003c39; /* verde padrão */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+/* LINKS DE AVALIAÇÃO */
+.itens-avaliar {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.link-avaliar {
+  color: #003c39;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 15px;
+}
+
+.link-avaliar:hover {
+  color: #007a75;
+}
+
+.link-avaliar.selecionado {
+  font-weight: 600;
+  color: #005c57;
+  text-decoration: none;
+}
+
+
+/* ======= RESPONSIVIDADE ======= */
+@media (max-width: 700px) {
+  .produtos-lista {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .produto-item {
+    width: 90%;
+  }
+}
+
+#alert-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Estilos para o componente de alerta */
+.alerta {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px 20px;
+  border-radius: 5px;
+  color: #fff;
+  font-family: 'Arimo', sans-serif;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.alerta.info {
+  background-color: #007bff;
+}
+
+.alerta.erro {
+  background-color: #dc3545;
+}
+
+.alerta.sucesso {
+  background-color: #28a745;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .etapa img {
+    width: 50px;
+    height: 50px;
+    max-width: 100%;
+  }
+
+  .etapa span {
+    font-size: 12px;
+    margin-top: 3px;
+  }
+
+  .etapa-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  .linha {
+    width: 30px;
+    height: 3px;
+    margin: 0 3px; /* espaço igual em todos os lados */
+    align-self: center; /* centraliza verticalmente em relação à bolinha */
+  }
+
+  /* remover margem da linha antes da primeira bolinha */
+  .etapa-wrapper:first-child .linha {
+    margin-left: 0;
+  }
+
+  .status-etapas {
+    justify-content: center;
+    flex-wrap: nowrap;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .etapa img {
+    width: 50px;
+    height: 50px;
+    max-width: 100%;
+  }
+
+  .etapa span {
+    font-size: 12px;
+    margin-top: 3px;
+  }
+
+  .linha {
+    width: 30px; 
+    height: 3px;
+    margin: -10px 3px 0 3px; 
+  }
+
+  .status-etapas {
+    justify-content: center;
+    flex-wrap: nowrap;
+    margin-bottom: 20px;
+  }
+
+  .etapa-wrapper {
+    flex-direction: row;
+    align-items: center; 
+  }
+}

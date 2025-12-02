@@ -1,0 +1,247 @@
+/* Container dos produtos relacionados - GRID DE 4 COLUNAS */
+.produtos-relacionados {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1800px;
+    width: 100%;
+    font-family: "Abel", sans-serif;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding-top: 20px;
+    box-sizing: border-box;
+}
+
+/* Container principal */
+.catalogo-relacionado-section {
+    width: 100%;
+    background-color: white;
+}
+
+.catalogo-relacionado-container {
+    width: 100%;
+    max-width: 1520px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* Cada cartão de produto relacionado */
+.produto-card-relacionado {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 326px;
+    height: fit-content;
+    border-radius: 12px;
+    background-color: #fff;
+    box-sizing: border-box;
+    margin: 0 auto; /* Centraliza cada card individualmente */
+}
+
+/* Container da imagem - POSIÇÃO RELATIVA PARA O BADGE */
+.img-container-relacionado, .img-container-relacionado img {
+    width: 326px;
+    height: 432px;
+}
+
+.img-container-relacionado {
+    position: relative;
+    display: block;
+}
+
+.produto-card-relacionado .img-container-relacionado img {
+    width: 100%;
+    border-radius: 2px;
+    box-shadow: 1px 2px 5px 2px rgba(0, 0, 0, 0.3);
+    display: block;
+}
+
+.produto-card-relacionado h3 {
+    margin: 5px 0 1px;
+    font-size: 17px;
+    text-align: center;
+    color: #6b6161;
+    font-weight: 550;
+}
+
+.produto-card-relacionado p {
+    margin: 5px 0;
+    font-size: 15px;
+    color: black;
+}
+
+.cores-relacionado {
+    display: flex;
+    gap: 5px;
+}
+
+.cor-bolinha-relacionado {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.preco-cores-relacionado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1px 0;
+}
+
+/* CORREÇÃO: Badge de novidade posicionado no canto superior esquerdo SEM BOX-SHADOW */
+.novidade-badge-relacionado {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 90px;
+    height: 100px;
+}
+
+.novidade-badge-relacionado img {
+    width: 75px !important;
+    height: 80px;
+    box-shadow: none !important; /* REMOVE QUALQUER BOX-SHADOW */
+}
+
+/* Mensagem de carregamento */
+.catalogo-relacionado-section p {
+    text-align: start;
+    font-family: "Abel", sans-serif;
+    font-size: 15px;
+    color: black;
+    margin: 0;
+}
+
+@media (max-width: 1024px) {
+    .produtos-relacionados {
+        grid-template-columns: repeat(3, 1fr); /* 3 COLUNAS EM TABLET */
+        gap: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .produtos-relacionados {
+        grid-template-columns: repeat(2, 1fr); /* 2 COLUNAS EM MOBILE */
+        gap: 15px;
+        margin-top: 10px;
+    }
+
+    .produto-card-relacionado {
+        padding: 10px;         
+    }
+
+    .produto-card-relacionado img {
+        width: 100%;
+        border-radius: 6px;
+    }
+
+    .produto-card-relacionado h3 {
+        font-size: 15px;       
+    }
+
+    .produto-card-relacionado p {
+        font-size: 13px;
+    }
+
+    .preco-cores-relacionado p {
+        font-size: 14px;
+    }
+
+    .cor-bolinha-relacionado {
+        width: 18px;
+        height: 18px;
+    }
+
+    /* Ajuste do badge de novidade para mobile */
+    .novidade-badge-relacionado {
+        width: 50px;
+        height: 75px;
+    }
+
+    .novidade-badge-relacionado img {
+        width: 50px;
+        height: 75px;
+    }
+}
+
+@media (max-width: 600px) {
+    .produtos-relacionados {
+        grid-template-columns: 1fr; /* 1 COLUNA EM 600px */
+        gap: 15px;
+        justify-items: center; /* Centraliza os itens do grid */
+        max-width: 400px; /* Limita a largura máxima */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .produto-card-relacionado {
+        max-width: 326px; /* Mantém a largura original do card */
+        width: 100%;
+        margin: 0 auto; /* Garante centralização individual */
+    }
+    
+    .img-container-relacionado, 
+    .img-container-relacionado img {
+        width: 100%;
+        max-width: 326px;
+        height: auto;
+        aspect-ratio: 326/432; /* Mantém a proporção original */
+    }
+    
+    .novidade-badge-relacionado {
+        width: 40px;
+        height: 60px;
+    }
+
+    .novidade-badge-relacionado img {
+        width: 40px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .catalogo-relacionado-container {
+        padding: 0 10px;
+    }
+    
+    .produtos-relacionados {
+        gap: 12px;
+        max-width: 350px; /* Reduz um pouco para telas muito pequenas */
+    }
+    
+    .produto-card-relacionado {
+        padding: 8px;
+        max-width: 300px; /* Ajusta para telas menores */
+    }
+    
+    .produto-card-relacionado h3 {
+        font-size: 14px;
+    }
+    
+    .produto-card-relacionado p {
+        font-size: 12px;
+    }
+    
+    .img-container-relacionado, 
+    .img-container-relacionado img {
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 360px) {
+    .produtos-relacionados {
+        max-width: 320px;
+    }
+    
+    .produto-card-relacionado {
+        max-width: 280px;
+    }
+    
+    .img-container-relacionado, 
+    .img-container-relacionado img {
+        max-width: 280px;
+    }
+}

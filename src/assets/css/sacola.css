@@ -1,0 +1,874 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo&display=swap');
+
+/* Container principal */
+.container-sacola {
+  max-width: 1500px;
+  width: 100%;
+  margin: 0 auto;
+  font-family: 'Arimo', sans-serif;
+  background-color: #fff;
+  color: #333;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Cabeçalho da sacola */
+.lala {
+  display: flex;
+  align-items: center;
+  padding-top: 40px;
+}
+
+.container-sacola hr {
+  margin: 10px 0 10px;
+}
+
+.lala h1 {
+  margin-left: 10px;
+}
+
+.lala img {
+  width: 70px;
+}
+
+.h1 {
+  font-family: 'Arimo', sans-serif;
+  color: #444;
+  letter-spacing: 4px;
+  font-size: 30px;
+  align-items: flex-end;
+}
+
+/* ===================== */
+/* ======= TABELA ====== */
+/* ===================== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+#produto-title {
+  text-align: left;
+}
+
+thead th {
+  font-size: 18px;
+}
+
+th,
+td {
+  border-bottom: 1px solid #ccc;
+  padding: 20px 10px;
+  text-align: center;
+  font-size: 14px;
+}
+
+th.teste {
+  text-align: left;
+}
+
+th {
+  letter-spacing: 2px;
+  font-weight: normal;
+  color: #444;
+  font-family: 'Arimo', sans-serif;
+}
+
+/* Produto dentro da tabela */
+.produto-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 500px;
+}
+
+.produto-info img {
+  width: 150px;
+  height: auto;
+}
+
+.produto-info h1 {
+  font-family: 'Arimo', sans-serif;
+  text-align: start;
+  font-weight: 400;
+  color: #444;
+  letter-spacing: 2px;
+  margin: 2px 0 50px 20px;
+  font-size: 17px;
+}
+
+.produto-info p {
+  font-family: 'Arimo', sans-serif;
+  text-align: start;
+  font-weight: 100;
+  color: #444;
+  letter-spacing: 2px;
+  margin: 2px 0 0 20px;
+}
+
+.produto-detalhes {
+  font-size: 16px;
+}
+
+.detalhes-produto {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.cor,
+.cor2 {
+  margin-left: 20px;
+}
+
+.cor,
+.cor2 {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+}
+
+.cor {
+  background-color: palevioletred;
+}
+
+.cor2 {
+  background-color: rgb(8, 135, 15);
+}
+
+/* Controle de quantidade */
+.quantidade {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.quantidade button {
+  width: 25px;
+  height: 25px;
+  border: 1px solid #ccc;
+  background-color: transparent;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.quantidade span {
+  color: black;
+  font-size: 15px;
+  font-weight: 100;
+}
+
+/* ============================ */
+/* ======= CONTEÚDO BASE ====== */
+/* ============================ */
+.conteudo-principal {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+  width: 100%;
+  margin-bottom: 45px;
+}
+
+.inferior {
+  width: 50%;
+}
+
+.resumo {
+  width: 50%;
+}
+
+/* ============================ */
+/* ===== DADOS DO USUÁRIO ===== */
+/* ============================ */
+.dados-usuario2 {
+  width: 100%;
+  padding: 20px;
+  font-family: 'Arimo', sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.dados-usuario2 h2 {
+  font-size: 25px;
+  color: #524b4b;
+  margin-bottom: 30px;
+}
+
+/* Endereços */
+.endereco-cadastrado {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.endereco {
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.endereco h3 {
+  color: #6b6161;
+  font-weight: 100;
+  font-size: 19px;
+  margin: 0 0 10px;
+}
+
+.endereco h2 {
+  color: #a6a6a6;
+  font-weight: 100;
+  font-size: 17px;
+  margin: 0;
+  line-height: 25px;
+}
+
+.cep h3 {
+  color: #6b6161;
+  font-weight: 100;
+  font-size: 17px;
+  margin: 0;
+  display: flex;
+  justify-content: end;
+}
+
+/* Botão adicionar endereço */
+.novo-endereço {
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  background-color: #e2e1e1;
+  border-radius: 10px;
+  padding: 20px;
+  border: transparent;
+  width: 100%;
+  cursor: pointer
+}
+
+button img {
+  width: 50px;
+  border: transparent;
+}
+
+.add-endereco {
+  border: transparent;
+  background-color: transparent;
+  width: 60px;
+  height: 60px;
+  border-radius: 50px;
+  align-items: center;
+}
+
+.add-endereco img {
+  width: 50px;
+  cursor: pointer;
+}
+
+.add-endereco:hover {
+  background-color: rgba(163, 163, 163, 0.226);
+}
+
+.endereco button {
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0;
+  width: 20px;
+}
+
+.endereco img {
+  width: 20px;
+  padding: 0;
+}
+
+.endereco-linha1 {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ============================ */
+/* ========= MODAL ============ */
+/* ============================ */
+.modal-endereco {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  display: flex;
+}
+
+.modal-conteudo {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  font-family: "Poppins", sans-serif;
+}
+
+.modal-conteudo span {
+  font-weight: 100;
+  color: #084550;
+  font-size: 17px;
+}
+
+.select-endereco {
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.select-endereco label {
+  font-weight: 100;
+  display: flex;
+}
+
+.modal-conteudo h2 {
+  color: black;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  margin: 0;
+}
+
+.dados-de-endereco label {
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  margin-left: 0;
+}
+
+.dados-de-endereco input {
+  border-radius: 5px;
+  padding-left: 3px;
+  font-family: 'Arimo', sans-serif;
+  margin-bottom: 15px;
+}
+
+.shakira h2 {
+  display: flex;
+  justify-content: center;
+  color: #0e2523;
+  font-size: 23px;
+  margin: 0 0 20px;
+}
+
+.shakira h1 {
+  font-size: 20px;
+  font-weight: 100;
+  margin: 0 10px 3px;
+}
+
+.shakira input,
+#estado {
+  width: 100%;
+  border: 1px solid #444;
+  border-radius: 10px;
+  height: 40px;
+  margin-bottom: 15px;
+  font-size: 17px;
+}
+
+/* Botões do formulário */
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  margin: 8px;
+}
+
+.buttons button,
+.button {
+  padding: 10px;
+  border: transparent;
+  border-radius: 50px;
+  background-color: #6b6161;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.buttons button:hover,
+.button:hover {
+  color: #bcbcbc;
+}
+
+/* ============================ */
+/* ========= RESUMO =========== */
+/* ============================ */
+.frete-total p {
+  font-size: 20px;
+  color: #6b6161;
+}
+
+.escrita h2 {
+  margin-top: 50px;
+  color: #524b4b;
+}
+
+.resumo .cupom {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.resumo .cupom input {
+  border: 1px solid;
+  padding: 5px;
+  font-size: 14px;
+  width: 100%;
+  background: transparent;
+  height: 50px;
+  border-radius: 5px;
+}
+
+.resumo .cupom button {
+  padding: 17px 10px;
+  background-color: #5c504d;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.resumo hr,
+.valores hr {
+  background-color: #6b6161;
+  height: 1px;
+  margin-bottom: 20px;
+}
+
+.escrita h3 {
+  margin-top: 15px;
+  font-family: 'Arimo', sans-serif;
+  font-weight: normal;
+  font-size: 15px;
+}
+
+/* Valores do resumo */
+.valores p {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+
+.valores span {
+  color: black;
+  font-weight: 100;
+  font-size: 17px;
+}
+
+/* Botão fechar */
+.fechar {
+  width: 100%;
+  margin-top: 10px;
+  background-color: #5f5555;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  height: 48px;
+  border: 1px solid;
+}
+
+/* Mensagem vazia */
+#mensagem-vazia {
+  font-size: 22px;
+  color: #333;
+  text-align: center;
+  margin: 50px 0;
+  font-weight: 400;
+}
+
+/* HR padrão */
+hr {
+  margin-left: 0;
+}
+
+/*SELECT*/
+select {
+  width: 100%;
+  max-width: 100%;
+  padding: 15px;
+  border-radius: 5px;
+  font-family: "Poppins", sans-serif;
+}
+
+select option {
+  width: auto;
+}
+
+.valor-final {
+  margin: 25px 0 25px;
+}
+
+.select-endereco label {
+  margin: 0;
+  display: flex;
+  padding: 10px;
+}
+
+.select-endereco input {
+  width: 10px;
+  /* margin-bottom: 10px; */
+}
+
+
+#alert-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Estilos para o componente de alerta */
+.alerta {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px 20px;
+  border-radius: 5px;
+  color: #fff;
+  font-family: 'Arimo', sans-serif;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.alerta.info {
+  background-color: #007bff;
+}
+
+.alerta.erro {
+  background-color: #dc3545;
+}
+
+.alerta.sucesso {
+  background-color: #28a745;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#modalConfirmarExclusao {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999 !important;
+  /* Força o modal acima de tudo */
+  pointer-events: all !important;
+  /* Garante que os cliques funcionem */
+}
+
+
+#modalConfirmarExclusao .modal-conteudo {
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+  width: 400px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+#modalConfirmarExclusao .modal-conteudo p {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+#modalConfirmarExclusao .modal-conteudo .botoes-alerta {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+#modalConfirmarExclusao .modal-conteudo .botoes-alerta button {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: 'Arimo', sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+#modalConfirmarExclusao .modal-conteudo .botoes-alerta button:first-child {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+#modalConfirmarExclusao .modal-conteudo .botoes-alerta button:first-child:hover {
+  background-color: #c82333;
+}
+
+#modalConfirmarExclusao .modal-conteudo .botoes-alerta button:last-child {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+#modalConfirmarExclusao .modal-conteudo .botoes-alerta button:last-child:hover {
+  background-color: #5a6268;
+}
+
+.description {
+  height: 207px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.description h1,
+.detalhes-produto {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.detalhes-produto {
+  display: flex;
+  flex-direction: column;
+}
+
+.detalhes-produto p {
+  color: #a6a6a6;
+}
+
+.cor-medida {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  margin-top: 10px;
+  /* justify-content: space-between; */
+}
+
+.sem-nada {
+  text-align: center;
+  margin: 100px;
+  font-size: 20px;
+}
+
+@media (max-width: 768px) {
+  .lala img {
+    width: 50px;
+  }
+
+  .h1 {
+    font-size: 18px;
+  }
+
+  .container-sacola hr {
+    margin: 5px 0 5px;
+  }
+
+  thead th {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .produto-info {
+    gap: 0;
+  }
+
+  .produto-info h1 {
+    font-size: 15px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .produto-info p {
+    font-size: 13px;
+    color: #a6a6a6;
+    margin-bottom: 5px;
+  }
+
+  .description {
+    width: 150px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .detalhes-produto {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cor-medida {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .quantidade button {
+    width: 15px;
+    height: 15px;
+    padding: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .quantidade span {
+    margin: 0;
+  }
+
+  .dados-usuario2 {
+    padding-top: 0;
+  }
+
+  .dados-usuario2 h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  button img {
+    width: 25px;
+  }
+
+  .frete-total p {
+    font-size: 15px;
+  }
+
+  .escrita h2 {
+    font-size: 18px;
+    margin-top: 15px;
+  }
+
+  .escrita h3 {
+    font-size: 14px;
+  }
+
+  .resumo .cupom input {
+    height: 30px;
+  }
+
+  .resumo .cupom button {
+    padding: 8px 5px;
+  }
+
+  .valores p,
+  .valores span {
+    font-size: 13px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+}
+
+@media (max-width: 600px) {
+
+
+  td {
+    padding: 10px 5px;
+    font-size: 13px;
+  }
+
+  .produto-info img {
+    width: 120px;
+    height: 166px;
+  }
+
+  .produto-info h1 {
+    font-size: 12px;
+  }
+
+  .produto-info p {
+    font-size: 10px;
+  }
+
+  .medida {
+    width: 20px;
+    height: 20px;
+  }
+
+  .cor,
+  .cor2 {
+    width: 15px;
+    height: 15px;
+  }
+
+  #entrega {
+    display: none;
+  }
+
+  .quantidade span {
+    font-size: 13px;
+  }
+
+  .quantidade button {
+    padding: 10px;
+  }
+
+  .dados-usuario2 {
+    padding: 0;
+  }
+
+  .endereco {
+    padding: 6px;
+    border-radius: 6px;
+  }
+
+  .endereco h3 {
+    font-size: 12px;
+  }
+
+  .endereco h2 {
+    font-size: 11.5px;
+  }
+
+  .cep h3 {
+    font-size: 11.5px;
+  }
+
+  .novo-endereco button {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .description {
+    height: 166px !important;
+    margin-top: 5px !important;
+  }
+
+  .detalhes-produto p {
+    font-size: 12px !important;
+    margin-top: 10px;
+  }
+
+  .cor-medida {
+    margin-top: 0;
+  }
+}
